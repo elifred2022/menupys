@@ -93,68 +93,61 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
   } else {
     foodContent = (
       <>
-        <td colSpan={3}>
-          {/*<td>{index + 1}.-</td>*/}
-          <td>{usuario.nombre}</td>
-          <td>{usuario.fecha}</td>
-        </td>
-        <tr key={usuario.id}>
-          <td>
-            {usuario.consumoStore.map((item, consumoIndex) => (
-              <div className="consumocu" key={consumoIndex}>
-                <td>
-                  <p>
-                    Lunes: {item.comidaL}, {item.gustoL}
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Martes: {item.comidaMt}, {item.gustoMt}
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Miercoles: {item.comidaMc}, {item.gustoMc}
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Jueves: {item.comidaJ}, {item.gustoJ}
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    Viernes: {item.comidaV}, {item.gustoV}
-                  </p>
-                </td>
-              </div>
-            ))}
-          </td>
-        </tr>
-        <tr>
-          <td colSpan={3}>
-            <div className="botonera">
-              <button
-                className="my-button_editar"
-                onClick={() => setIsEditing(true)}
-              >
-                EDITAR
-              </button>
-              <button
-                className="my-button_eliminar"
-                onClick={() => {
-                  if (
-                    window.confirm("¿Estás seguro de eliminar este registro?")
-                  ) {
-                    dispatch({ type: "ELIMINAR_COMIDA", payload: usuario });
-                  }
-                }}
-              >
-                ELIMINAR
-              </button>
+        <div className="lista">
+          <div>
+            <h3>{usuario.nombre}</h3>
+          </div>
+          <div className="contenido">
+            <div>
+              <p>Desde:</p>
+              {usuario.fechaDesde}
             </div>
-          </td>
-        </tr>
+            <div>
+              <p> Hasta:</p>
+              {usuario.fechaHasta}
+            </div>
+            <div>
+              <p>Lunes:</p>
+              {usuario.oPlunes}
+            </div>
+            <div>
+              <p> Martes:</p>
+              {usuario.oPmartes}
+            </div>
+            <div>
+              <p>Miercoles:</p>
+              {usuario.oPmiercoles}
+            </div>
+            <div>
+              <p>Jueves:</p>
+              {usuario.oPjueves}
+            </div>
+            <div>
+              <p>Viernes:</p>
+              {usuario.oPviernes}
+            </div>
+          </div>
+          <div className="botonera">
+            <button
+              className="my-button_editar"
+              onClick={() => setIsEditing(true)}
+            >
+              EDITAR
+            </button>
+            <button
+              className="my-button_eliminar"
+              onClick={() => {
+                if (
+                  window.confirm("¿Estás seguro de eliminar este registro?")
+                ) {
+                  dispatch({ type: "ELIMINAR_COMIDA", payload: usuario });
+                }
+              }}
+            >
+              ELIMINAR
+            </button>
+          </div>
+        </div>
       </>
     );
   }

@@ -37,12 +37,12 @@ header {
   align-items: center;
   flex-wrap: wrap;
   box-sizing: border-box;
-  background: black;
-  color: yellow;
+  background: #1e88e5;
+  color: #e3f2fd;
   position: fixed;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 5px 10px #c78306a4;
+  box-shadow: 0 5px 10px #90caf9;
 }
 
 main {
@@ -50,264 +50,97 @@ main {
   padding: 20px;
 }
 
+
 .formulario {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #e3f2fd;
+  border: 1px solid #90caf9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  color: #1565c0;
+}
+
+.formulario .consumo {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 15px;
+}
+
+.formulario .consumo div {
+  display: flex;
   align-items: center;
+  gap: 10px;
 }
 
-input {
-  display: flex;
-  padding: 1.5px;
-  margin: 0 15px;
-  box-sizing: border-box;
+.formulario p {
+  width: 80px;
+  margin: 0;
+  font-weight: bold;
+  color: #1e88e5;
 }
 
-.formBebidas {
-  display: flex;
-  padding: 1.5px;
-  box-sizing: border-box;
-  color: yellow;
-}
-
-.formBebidas b, .formBebidas span {
-  display: flex;
-  padding: 1.5px;
-  margin: 0 15px;
-  box-sizing: border-box;
-}
-
-.styled-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.styled-table th,
-.styled-table td, tr {
-  border: 1px solid yellow;
+.formulario input[type="text"],
+.formulario input[type="date"] {
+  flex: 1;
   padding: 8px;
-  text-align: left;
+  border: 1px solid #64b5f6;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
 }
 
-.styled-table th, td, tr {
-  background-color: black;
-  color: yellow;
-}
-
-.consumoimporte, .consumocu {
-  display: flex;
-  justify-content: space-around;
-  padding: 1.5px;
-}
-
-.yellow {
-  color: yellow;
-}
-
-.verde {
-  color: rgb(0, 255, 102);
-}
-
-.red {
-  color: red;
-}
-
-.selector {
-  color: yellow;
-  background-color: #202020;
-}
-
-.btn-calc, .btn-calc2 {
-  color: rgb(0, 255, 102);
-  background-color: black;
-}
-
-.btn-calc {
-  width: 150px;
-  height: 50px;
-  font-size: 1.2em;
-}
-
-.btn-calc2 {
-  width: 100px;
-  height: 30px;
-  font-size: 1em;
-}
-
-.btn-regular {
-  color: yellow;
-  border-radius: 5px;
-  background-color: transparent;
-  padding: 5px;
-}
-
-.my-button_agregar, .my-button_eliminar, .my-button_editar {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  font-size: 20px;
+.formulario input[type="text"]:focus,
+.formulario input[type="date"]:focus {
+  border-color: #1976d2;
 }
 
 .my-button_agregar {
-  color: rgb(0, 255, 102);
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #42a5f5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s;
 }
 
 .my-button_agregar:hover {
-  color: white;
+  background-color: #1e88e5;
 }
 
-.my-button_eliminar {
-  color: red;
+.my-button_agregar:disabled {
+  background-color: #bbdefb;
+  cursor: not-allowed;
 }
 
-.my-button_eliminar:hover, .my-button_editar:hover {
-  color: white;
-}
+/*  estilo LISTA */
 
-.my-button_eliminar:active, .my-button_editar:active {
-  background-color: red;
-}
-
-.my-button_editar {
-  color: rgb(255, 230, 0);
-}
-
-.botonera {
-  display: flex;
-  padding: 1.5px;
-  margin: 0 5px;
-  box-sizing: border-box;
-  justify-content: space-around;
-}
-
-.toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 25px;
-}
-
-.toggle-switch-slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-  border-radius: 6px;
-}
-
-.toggle-switch-slider:before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 6px;
-}
-
-input:checked + .toggle-switch-slider {
-  background-color: rgb(0, 255, 102);
-}
-
-input:checked + .toggle-switch-slider:before {
-  transform: translateX(26px);
-}
-
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #202020;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 250px;
-  height: 250px;
-  border: 1px solid yellow;
-  padding: 8px;
-  text-align: left;
-}
-
-.modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
+.lista {
   width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #e3f2fd;
+  border: 1px solid #90caf9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  color: #1565c0;
 }
 
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 24px;
-}
 
-/*** Responsive ***/
-
-/* Small devices (mobile) */
-@media only screen and (max-width: 600px) {
-  header {
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .formulario, .contenedor, .lista-elementos {
-    width: 100%;
-  }
-
-  .styled-table th, .styled-table td, .styled-table tr {
-    padding: 0.2px;
-  }
-
-  .my-button_agregar {
-    padding: 5px;
-    font-size: 20px;
-  }
-
-  .styled-table-bebida th, .styled-table-bebida td, .styled-table-bebida tr,
-  .styled-table-informe th, .styled-table-informe td, .styled-table-informe tr {
-    padding: 0.1px;
-  }
-}
-
-/* Medium devices (tablets) */
-@media only screen and (min-width: 600px) and (max-width: 960px) {
-  .verde_name {
-    font-size: 24px;
-  }
-
-  .contenedor {
-    padding: 20px;
-  }
-
-  .lista-elementos {
-    width: 70%;
-  }
-}
-
-/* Large devices (desktops) */
-@media only screen and (min-width: 960px) {
-  .verde_name {
-    font-size: 32px;
-  }
-
-  .contenedor {
-    padding: 30px;
-  }
-
-  .lista-elementos {
-    width: 50%;
-  }
+.lista .contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
