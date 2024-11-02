@@ -1,0 +1,313 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body {
+  background: #202020;
+  color: white;
+}
+
+.App {
+  max-width: 1550px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+/************HEADER********/
+header {
+  width: 100%;
+  min-height: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  background: black;
+  color: yellow;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 5px 10px #c78306a4;
+}
+
+main {
+  margin-top: 90px;
+  padding: 20px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  display: flex;
+  padding: 1.5px;
+  margin: 0 15px;
+  box-sizing: border-box;
+}
+
+.formBebidas {
+  display: flex;
+  padding: 1.5px;
+  box-sizing: border-box;
+  color: yellow;
+}
+
+.formBebidas b, .formBebidas span {
+  display: flex;
+  padding: 1.5px;
+  margin: 0 15px;
+  box-sizing: border-box;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.styled-table th,
+.styled-table td, tr {
+  border: 1px solid yellow;
+  padding: 8px;
+  text-align: left;
+}
+
+.styled-table th, td, tr {
+  background-color: black;
+  color: yellow;
+}
+
+.consumoimporte, .consumocu {
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5px;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.verde {
+  color: rgb(0, 255, 102);
+}
+
+.red {
+  color: red;
+}
+
+.selector {
+  color: yellow;
+  background-color: #202020;
+}
+
+.btn-calc, .btn-calc2 {
+  color: rgb(0, 255, 102);
+  background-color: black;
+}
+
+.btn-calc {
+  width: 150px;
+  height: 50px;
+  font-size: 1.2em;
+}
+
+.btn-calc2 {
+  width: 100px;
+  height: 30px;
+  font-size: 1em;
+}
+
+.btn-regular {
+  color: yellow;
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 5px;
+}
+
+.my-button_agregar, .my-button_eliminar, .my-button_editar {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 20px;
+}
+
+.my-button_agregar {
+  color: rgb(0, 255, 102);
+}
+
+.my-button_agregar:hover {
+  color: white;
+}
+
+.my-button_eliminar {
+  color: red;
+}
+
+.my-button_eliminar:hover, .my-button_editar:hover {
+  color: white;
+}
+
+.my-button_eliminar:active, .my-button_editar:active {
+  background-color: red;
+}
+
+.my-button_editar {
+  color: rgb(255, 230, 0);
+}
+
+.botonera {
+  display: flex;
+  padding: 1.5px;
+  margin: 0 5px;
+  box-sizing: border-box;
+  justify-content: space-around;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 25px;
+}
+
+.toggle-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 6px;
+}
+
+.toggle-switch-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 6px;
+}
+
+input:checked + .toggle-switch-slider {
+  background-color: rgb(0, 255, 102);
+}
+
+input:checked + .toggle-switch-slider:before {
+  transform: translateX(26px);
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #202020;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 250px;
+  border: 1px solid yellow;
+  padding: 8px;
+  text-align: left;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/*** Responsive ***/
+
+/* Small devices (mobile) */
+@media only screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .formulario, .contenedor, .lista-elementos {
+    width: 100%;
+  }
+
+  .styled-table th, .styled-table td, .styled-table tr {
+    padding: 0.2px;
+  }
+
+  .my-button_agregar {
+    padding: 5px;
+    font-size: 20px;
+  }
+
+  .styled-table-bebida th, .styled-table-bebida td, .styled-table-bebida tr,
+  .styled-table-informe th, .styled-table-informe td, .styled-table-informe tr {
+    padding: 0.1px;
+  }
+}
+
+/* Medium devices (tablets) */
+@media only screen and (min-width: 600px) and (max-width: 960px) {
+  .verde_name {
+    font-size: 24px;
+  }
+
+  .contenedor {
+    padding: 20px;
+  }
+
+  .lista-elementos {
+    width: 70%;
+  }
+}
+
+/* Large devices (desktops) */
+@media only screen and (min-width: 960px) {
+  .verde_name {
+    font-size: 32px;
+  }
+
+  .contenedor {
+    padding: 30px;
+  }
+
+  .lista-elementos {
+    width: 50%;
+  }
+}
