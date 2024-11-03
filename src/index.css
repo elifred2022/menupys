@@ -13,41 +13,46 @@ code {
     monospace;
 }
 
+/* Body */
 body {
   background: #202020;
   color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
+/* Container for main app */
 .App {
   max-width: 1550px;
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
   padding: 0 15px;
-  box-sizing: border-box;
 }
 
-/************HEADER********/
+/* Main content with scroll adjustment */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 120px; /* Ajuste para compensar el espacio del header fijo */
+}
+
+/* Header */
 header {
   width: 100%;
-  min-height: 100px;
-  overflow: hidden;
+  height: 100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap;
-  box-sizing: border-box;
   background: #1e88e5;
   color: #e3f2fd;
   position: fixed;
   top: 0;
   z-index: 1000;
   box-shadow: 0 5px 10px #90caf9;
-}
-
-main {
-  margin-top: 90px;
-  padding: 20px;
+  padding: 10px 0;
 }
 
 
@@ -125,7 +130,9 @@ main {
 
 /*  estilo LISTA */
 
+
 .lista {
+  
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
@@ -138,9 +145,39 @@ main {
   color: #1565c0;
 }
 
-
 .lista .contenido {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.lista .contenido div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lista p {
+  width: 80px;
+  margin: 0;
+  font-weight: bold;
+  color: #1e88e5;
+}
+
+
+
+.my-button_editar, .my-button_eliminar {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #42a5f5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s;
 }

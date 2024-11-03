@@ -3,6 +3,7 @@ import { useState, useEffect, useReducer } from "react";
 import Header from "./components/Header";
 import Formulario from "./components/Formulario";
 import Lista from "./components/Lista";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [storedState, setStoredState] = useState(() => {
@@ -35,14 +36,32 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <Formulario dispatch={dispatch} onAgregarConsumo={agregarConsumo} />
-        <Lista
-          consumoStore={consumosListados}
-          comidas={state.comidas}
-          state={state}
-          dispatch={dispatch}
-          onChangeComidas={handleChangeComidas}
-        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Formulario
+                dispatch={dispatch}
+                onAgregarConsumo={agregarConsumo}
+              />
+            }
+          />
+
+          <Route>
+            <Route
+              path="/lista"
+              element={
+                <Lista
+                  consumoStore={consumosListados}
+                  comidas={state.comidas}
+                  state={state}
+                  dispatch={dispatch}
+                  onChangeComidas={handleChangeComidas}
+                />
+              }
+            />
+          </Route>
+        </Routes>
       </main>
     </div>
   );

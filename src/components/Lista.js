@@ -54,13 +54,25 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
     });
   };
 
+  // Función para formatear la fecha
+  /*
+  const formatDate = (date) => {
+    if (!date) return ""; // Verifica si hay una fecha
+    const localDate = new Date(date);
+    return localDate.toLocaleDateString("es-ES", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+  }; */
+
   // Renderizar contenido
   let foodContent;
   if (isEditing) {
     foodContent = (
-      <tr key={usuario.id}>
-        <td>{index + 1}.-</td>
-        <td>
+      <div key={usuario.id}>
+        <div>
+          <p>Nombre:</p>
           <input
             value={usuario.nombre}
             onChange={(e) => {
@@ -71,24 +83,115 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
               });
             }}
           />
-        </td>
-        <td>
-          {usuario.consumoStore.map((item, consumoIndex) => (
-            <div className="consumocu" key={consumoIndex}>
-              <label>Lunes:</label>
-              <input
-                value={item.comida}
-                onChange={(e) => handleInputChange(e, consumoIndex, "comida")}
-              />
-              <input
-                type="text"
-                value={item.gusto}
-                onChange={(e) => handleInputChange(e, consumoIndex, "gusto")}
-              />
-            </div>
-          ))}
-        </td>
-      </tr>
+        </div>
+        <div>
+          <p>Desde:</p>
+          <input
+            value={usuario.fechaDesde}
+            onChange={(e) => {
+              onChangeComidas({
+                type: "EDITAR_COMIDA",
+                ...usuario,
+                fechaDesde: e.target.value,
+              });
+            }}
+          />
+        </div>
+        <div>
+          <p>Hasta:</p>
+          <input
+            value={usuario.fechaDesde}
+            onChange={(e) => {
+              onChangeComidas({
+                type: "EDITAR_COMIDA",
+                ...usuario,
+                fechaHasta: e.target.value,
+              });
+            }}
+          />
+        </div>
+        <div>
+          <p>Lunes:</p>
+          <label>
+            <select
+              className="selector"
+              value={usuario.oPlunes}
+              onChange={(e) => {
+                onChangeComidas({
+                  type: "EDITAR_COMIDA",
+                  ...usuario,
+                  oPlunes: e.target.value,
+                });
+              }}
+            >
+              <option className="yellow" value="seleccionar">
+                Seleccione
+              </option>
+              <option className="yellow" value="No asisto">
+                No asisto
+              </option>
+              <option
+                className="yellow"
+                value="Milanesa de pollo con puré de papas"
+              >
+                Milanesa de pollo con puré de papas
+              </option>
+              <option
+                className="yellow"
+                value="Calabaza rellena con ratotoille de vegetales y queso gratinado"
+              >
+                Calabaza rellena con ratotoille de vegetales y queso gratinado
+              </option>
+              <option
+                className="yellow"
+                value="Sandwich de milanesa de ternera completo"
+              >
+                Sandwich de milanesa de ternera completo
+              </option>
+              <option
+                className="yellow"
+                value="Sandwich de milanesa de pollo completo"
+              >
+                Sandwich de milanesa de pollo completo
+              </option>
+              <option
+                className="yellow"
+                value="Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+              >
+                Tarta(acelga/caprese/jyq) con ensalada
+                (lechuga/tomate/zanahoria/cebolla)
+              </option>
+              <option
+                className="yellow"
+                value="4 empanadas (pollo/carne/jyq/humita)"
+              >
+                4 empanadas (pollo/carne/jyq/humita)
+              </option>
+              <option
+                className="yellow"
+                value="Pechuga a la plancha con arroz blanco aceite y queso"
+              >
+                Pechuga a la plancha con arroz blanco aceite y queso
+              </option>
+              <option
+                className="yellow"
+                value="Costeleta de ternera con papas al natural"
+              >
+                Costeleta de ternera con papas al natural
+              </option>
+              <option className="yellow" value="Ensalada caesar">
+                Ensalada caesar
+              </option>
+              <option className="yellow" value="Ensalada Lelucha">
+                Ensalada Lelucha
+              </option>
+              <option className="yellow" value="Ensalada primavera">
+                Ensalada primavera
+              </option>
+            </select>
+          </label>
+        </div>
+      </div>
     );
   } else {
     foodContent = (
@@ -100,11 +203,11 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
           <div className="contenido">
             <div>
               <p>Desde:</p>
-              {usuario.fechaDesde}
+              {usuario.fechaDesde} {/* formatDate(usuario.fechaDesde) */}
             </div>
             <div>
               <p> Hasta:</p>
-              {usuario.fechaHasta}
+              {usuario.fechaHasta} {/* formatDate(usuario.fechaHasta) */}
             </div>
             <div>
               <p>Lunes:</p>

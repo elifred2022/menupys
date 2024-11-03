@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { Link, useNavigate } from "react-router-dom";
 
 const Formulario = ({ onAgregarConsumo, dispatch }) => {
   const [nombre, setNombre] = useState("");
@@ -12,6 +13,8 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
   const [oPviernes, setOpViernes] = useState("");
   const [consumoStore, setConsumoStore] = useState([]);
   // const [guardarDisabled, setGuardarDisabled] = useState(true);
+
+  const navigate = useNavigate(); // Inicializa useNavigate para redirigir
 
   const agregarConsumo = () => {
     setConsumoStore([
@@ -185,6 +188,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
     setOpViernes("");
     setConsumoStore([]);
     // setGuardarDisabled(true);
+    navigate("/lista"); // Redirige a la página "lista" después de guardar
   };
 
   return (
@@ -219,63 +223,198 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
         </div>
         <div>
           <p>Lunes:</p>
-          <input
-            placeholder="Lunes"
-            type="text"
-            value={oPlunes}
-            onChange={handleoPlunesChange}
-          />
+          <label>
+            <select
+              className="selector"
+              value={oPlunes}
+              onChange={handleoPlunesChange}
+            >
+              <option className="yellow" value="seleccionar">
+                Seleccione
+              </option>
+              <option className="yellow" value="No asisto">
+                No asisto
+              </option>
+              <option
+                className="yellow"
+                value="Milanesa de pollo con puré de papas"
+              >
+                Milanesa de pollo con puré de papas
+              </option>
+              <option
+                className="yellow"
+                value="Calabaza rellena con ratotoille de vegetales y queso gratinado"
+              >
+                Calabaza rellena con ratotoille de vegetales y queso gratinado
+              </option>
+              <option
+                className="yellow"
+                value="Sandwich de milanesa de ternera completo"
+              >
+                Sandwich de milanesa de ternera completo
+              </option>
+              <option
+                className="yellow"
+                value="Sandwich de milanesa de pollo completo"
+              >
+                Sandwich de milanesa de pollo completo
+              </option>
+              <option
+                className="yellow"
+                value="Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+              >
+                Tarta(acelga/caprese/jyq) con ensalada
+                (lechuga/tomate/zanahoria/cebolla)
+              </option>
+              <option
+                className="yellow"
+                value="4 empanadas (pollo/carne/jyq/humita)"
+              >
+                4 empanadas (pollo/carne/jyq/humita)
+              </option>
+              <option
+                className="yellow"
+                value="Pechuga a la plancha con arroz blanco aceite y queso"
+              >
+                Pechuga a la plancha con arroz blanco aceite y queso
+              </option>
+              <option
+                className="yellow"
+                value="Costeleta de ternera con papas al natural"
+              >
+                Costeleta de ternera con papas al natural
+              </option>
+              <option className="yellow" value="Ensalada caesar">
+                Ensalada caesar
+              </option>
+              <option className="yellow" value="Ensalada Lelucha">
+                Ensalada Lelucha
+              </option>
+              <option className="yellow" value="Ensalada primavera">
+                Ensalada primavera
+              </option>
+            </select>
+          </label>
         </div>
         <div>
           <p>Martes:</p>
 
-          <input
-            placeholder="Martes"
-            type="text"
-            value={oPmartes}
-            onChange={handleoPmartesChange}
-          />
+          <label>
+            <select
+              className="selector"
+              value={oPmartes}
+              onChange={handleoPmartesChange}
+            >
+              <option className="yellow" value="seleccionar">
+                Seleccione
+              </option>
+              <option className="yellow" value="No asisto">
+                No asisto
+              </option>
+              <option className="yellow" value="pasta">
+                Ensalada
+              </option>
+              <option className="yellow" value="pollo">
+                Pasta
+              </option>
+              <option className="yellow" value="pizza">
+                Pizza
+              </option>
+            </select>
+          </label>
         </div>
         <div>
           <p>Miercoles:</p>
 
-          <input
-            placeholder="Miercoles"
-            type="text"
-            value={oPmiercoles}
-            onChange={handleoPmiercolesChange}
-          />
+          <label>
+            <select
+              className="selector"
+              value={oPmiercoles}
+              onChange={handleoPmiercolesChange}
+            >
+              <option className="yellow" value="seleccionar">
+                Seleccione
+              </option>
+              <option className="yellow" value="No asisto">
+                No asisto
+              </option>
+              <option className="yellow" value="pasta">
+                Ensalada
+              </option>
+              <option className="yellow" value="pollo">
+                Pasta
+              </option>
+              <option className="yellow" value="pizza">
+                Pizza
+              </option>
+            </select>
+          </label>
         </div>
         <div>
           <p>Jueves:</p>
 
-          <input
-            placeholder="Jueves"
-            type="text"
-            value={oPjueves}
-            onChange={handleoPjuevesChange}
-          />
+          <label>
+            <select
+              className="selector"
+              value={oPjueves}
+              onChange={handleoPjuevesChange}
+            >
+              <option className="yellow" value="seleccionar">
+                Seleccione
+              </option>
+              <option className="yellow" value="No asisto">
+                No asisto
+              </option>
+              <option className="yellow" value="pasta">
+                Ensalada
+              </option>
+              <option className="yellow" value="pollo">
+                Pasta
+              </option>
+              <option className="yellow" value="pizza">
+                Pizza
+              </option>
+            </select>
+          </label>
         </div>
 
         <div>
           <p>Viernes:</p>
 
-          <input
-            placeholder="Viernes"
-            type="text"
-            value={oPviernes}
-            onChange={handleoPviernesChange}
-          />
+          <label>
+            <select
+              className="selector"
+              value={oPviernes}
+              onChange={handleoPviernesChange}
+            >
+              <option className="yellow" value="seleccionar">
+                Seleccione
+              </option>
+              <option className="yellow" value="No asisto">
+                No asisto
+              </option>
+              <option className="yellow" value="pasta">
+                Ensalada
+              </option>
+              <option className="yellow" value="pollo">
+                Pasta
+              </option>
+              <option className="yellow" value="pizza">
+                Pizza
+              </option>
+            </select>
+          </label>
         </div>
       </div>
-
-      <button
-        type="submit"
-        // disabled={guardarDisabled}
-        className="my-button_agregar"
-      >
-        GUARDAR
-      </button>
+      <div>
+        <button
+          type="submit"
+          // disabled={guardarDisabled}
+          className="my-button_agregar"
+        >
+          GUARDAR
+        </button>
+      </div>
     </form>
   );
 };
