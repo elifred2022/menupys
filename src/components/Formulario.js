@@ -311,14 +311,61 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               <option className="yellow" value="No asisto">
                 No asisto
               </option>
-              <option className="yellow" value="pasta">
-                Ensalada
+              <option className="yellow" value="Ravioles con filetto y queso">
+                Ravioles con filetto y queso
               </option>
-              <option className="yellow" value="pollo">
-                Pasta
+              <option
+                className="yellow"
+                value="Chop suey (vegetales salteados con salsa de soja, jengibre y mix de semillas)"
+              >
+                Chop suey (vegetales salteados con salsa de soja, jengibre y mix
+                de semillas)
               </option>
-              <option className="yellow" value="pizza">
-                Pizza
+              <option
+                className="yellow"
+                value="Sandwich de milanesa de ternera completo"
+              >
+                Sandwich de milanesa de ternera completo
+              </option>
+              <option
+                className="yellow"
+                value="Sandwich de milanesa de pollo completo"
+              >
+                Sandwich de milanesa de pollo completo
+              </option>
+              <option
+                className="yellow"
+                value="Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+              >
+                Tarta(acelga/caprese/jyq) con ensalada
+                (lechuga/tomate/zanahoria/cebolla)
+              </option>
+              <option
+                className="yellow"
+                value="4 empanadas (pollo/carne/jyq/humita)"
+              >
+                4 empanadas (pollo/carne/jyq/humita)
+              </option>
+              <option
+                className="yellow"
+                value="Pechuga a la plancha con arroz blanco aceite y queso"
+              >
+                Pechuga a la plancha con arroz blanco aceite y queso
+              </option>
+              <option
+                className="yellow"
+                value="Costeleta de ternera con papas al natural"
+              >
+                Costeleta de ternera con papas al natural
+              </option>
+              <option className="yellow" value="Ensalada caesar">
+                Ensalada caesar
+              </option>
+              <option className="yellow" value="Ensalada Lelucha">
+                Ensalada Lelucha
+              </option>
+              <option className="yellow" value="Ensalada primavera">
+                Ensalada primavera
               </option>
             </select>
           </label>
@@ -338,14 +385,60 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               <option className="yellow" value="No asisto">
                 No asisto
               </option>
-              <option className="yellow" value="pasta">
-                Ensalada
+              <option
+                className="yellow"
+                value="Costeletas de cerdo a la Riojana"
+              >
+                Costeletas de cerdo a la Riojana
               </option>
-              <option className="yellow" value="pollo">
-                Pasta
+              <option className="yellow" value="Omelette capresse">
+                Omelette capresse
               </option>
-              <option className="yellow" value="pizza">
-                Pizza
+              <option
+                className="yellow"
+                value="Sandwich de milanesa de ternera completo"
+              >
+                Sandwich de milanesa de ternera completo
+              </option>
+              <option
+                className="yellow"
+                value="Sandwich de milanesa de pollo completo"
+              >
+                Sandwich de milanesa de pollo completo
+              </option>
+              <option
+                className="yellow"
+                value="Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+              >
+                Tarta(acelga/caprese/jyq) con ensalada
+                (lechuga/tomate/zanahoria/cebolla)
+              </option>
+              <option
+                className="yellow"
+                value="4 empanadas (pollo/carne/jyq/humita)"
+              >
+                4 empanadas (pollo/carne/jyq/humita)
+              </option>
+              <option
+                className="yellow"
+                value="Pechuga a la plancha con arroz blanco aceite y queso"
+              >
+                Pechuga a la plancha con arroz blanco aceite y queso
+              </option>
+              <option
+                className="yellow"
+                value="Costeleta de ternera con papas al natural"
+              >
+                Costeleta de ternera con papas al natural
+              </option>
+              <option className="yellow" value="Ensalada caesar">
+                Ensalada caesar
+              </option>
+              <option className="yellow" value="Ensalada Lelucha">
+                Ensalada Lelucha
+              </option>
+              <option className="yellow" value="Ensalada primavera">
+                Ensalada primavera
               </option>
             </select>
           </label>
@@ -365,14 +458,60 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               <option className="yellow" value="No asisto">
                 No asisto
               </option>
-              <option className="yellow" value="pasta">
-                Ensalada
+              <option className="yellow" value="Ñoquis con salsa bolognesa">
+                Ñoquis con salsa bolognesa
               </option>
-              <option className="yellow" value="pollo">
-                Pasta
+              <option
+                className="yellow"
+                value="Hamburguesas de vegetales con arroz integral oliva y queso"
+              >
+                Hamburguesas de vegetales con arroz integral oliva y queso
               </option>
-              <option className="yellow" value="pizza">
-                Pizza
+              <option
+                className="yellow"
+                value="Sandwich de milanesa de ternera completo"
+              >
+                Sandwich de milanesa de ternera completo
+              </option>
+              <option
+                className="yellow"
+                value="Sandwich de milanesa de pollo completo"
+              >
+                Sandwich de milanesa de pollo completo
+              </option>
+              <option
+                className="yellow"
+                value="Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+              >
+                Tarta(acelga/caprese/jyq) con ensalada
+                (lechuga/tomate/zanahoria/cebolla)
+              </option>
+              <option
+                className="yellow"
+                value="4 empanadas (pollo/carne/jyq/humita)"
+              >
+                4 empanadas (pollo/carne/jyq/humita)
+              </option>
+              <option
+                className="yellow"
+                value="Pechuga a la plancha con arroz blanco aceite y queso"
+              >
+                Pechuga a la plancha con arroz blanco aceite y queso
+              </option>
+              <option
+                className="yellow"
+                value="Costeleta de ternera con papas al natural"
+              >
+                Costeleta de ternera con papas al natural
+              </option>
+              <option className="yellow" value="Ensalada caesar">
+                Ensalada caesar
+              </option>
+              <option className="yellow" value="Ensalada Lelucha">
+                Ensalada Lelucha
+              </option>
+              <option className="yellow" value="Ensalada primavera">
+                Ensalada primavera
               </option>
             </select>
           </label>
@@ -393,14 +532,64 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               <option className="yellow" value="No asisto">
                 No asisto
               </option>
-              <option className="yellow" value="pasta">
-                Ensalada
+              <option
+                className="yellow"
+                value="Pollo al horno con papas doradas"
+              >
+                Pollo al horno con papas doradas
               </option>
-              <option className="yellow" value="pollo">
-                Pasta
+              <option
+                className="yellow"
+                value="Milanesa de vegetales (calabaza, zucchini o berenjena) con batatas al horno"
+              >
+                Milanesa de vegetales (calabaza, zucchini o berenjena) con
+                batatas al horno
               </option>
-              <option className="yellow" value="pizza">
-                Pizza
+              <option
+                className="yellow"
+                value="Sandwich de milanesa de ternera completo"
+              >
+                Sandwich de milanesa de ternera completo
+              </option>
+              <option
+                className="yellow"
+                value="Sandwich de milanesa de pollo completo"
+              >
+                Sandwich de milanesa de pollo completo
+              </option>
+              <option
+                className="yellow"
+                value="Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+              >
+                Tarta(acelga/caprese/jyq) con ensalada
+                (lechuga/tomate/zanahoria/cebolla)
+              </option>
+              <option
+                className="yellow"
+                value="4 empanadas (pollo/carne/jyq/humita)"
+              >
+                4 empanadas (pollo/carne/jyq/humita)
+              </option>
+              <option
+                className="yellow"
+                value="Pechuga a la plancha con arroz blanco aceite y queso"
+              >
+                Pechuga a la plancha con arroz blanco aceite y queso
+              </option>
+              <option
+                className="yellow"
+                value="Costeleta de ternera con papas al natural"
+              >
+                Costeleta de ternera con papas al natural
+              </option>
+              <option className="yellow" value="Ensalada caesar">
+                Ensalada caesar
+              </option>
+              <option className="yellow" value="Ensalada Lelucha">
+                Ensalada Lelucha
+              </option>
+              <option className="yellow" value="Ensalada primavera">
+                Ensalada primavera
               </option>
             </select>
           </label>
