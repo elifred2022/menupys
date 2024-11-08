@@ -120,11 +120,23 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
                 className="selector"
                 value={usuario.oPlunes}
                 onChange={(e) => {
-                  onChangeComidas({
-                    type: "EDITAR_COMIDA",
-                    ...usuario,
-                    oPlunes: e.target.value,
-                  });
+                  if (
+                    e.target.value !== "4 empanadas (pollo/carne/jyq/humita)"
+                  ) {
+                    // Resetea saborEmpanadasL a una cadena vacía
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborEmpanadasL: "", // Resetea el sabor
+                      oPlunes: e.target.value,
+                    });
+                  } else {
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      oPlunes: e.target.value,
+                    });
+                  }
                 }}
               >
                 <option className="selector" value="seleccionar">
@@ -194,6 +206,22 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
               </select>
             </label>
           </div>
+          {usuario.oPlunes === "4 empanadas (pollo/carne/jyq/humita)" && (
+            <div>
+              <p>Gusto:</p>
+              <input
+                value={usuario.saborEmpanadasL}
+                onChange={(e) => {
+                  onChangeComidas({
+                    type: "EDITAR_COMIDA",
+                    ...usuario,
+                    saborEmpanadasL: e.target.value,
+                  });
+                }}
+              />
+            </div>
+          )}
+
           <div>
             <p>Martes:</p>
             <label>
@@ -540,7 +568,13 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
             </div>
             <div>
               <p>Lunes:</p>
-              {usuario.oPlunes}; {usuario.saborEmpanadasL}
+              {usuario.oPlunes === "4 empanadas (pollo/carne/jyq/humita)" ? (
+                <>
+                  {usuario.oPlunes}; {usuario.saborEmpanadasL}
+                </>
+              ) : (
+                usuario.oPlunes
+              )}
             </div>
             <div>
               <p> Martes:</p>
