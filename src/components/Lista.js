@@ -540,23 +540,23 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
             </div>
             <div>
               <p>Lunes:</p>
-              {usuario.oPlunes}
+              {usuario.oPlunes}; {usuario.saborEmpanadasL}
             </div>
             <div>
               <p> Martes:</p>
-              {usuario.oPmartes}
+              {usuario.oPmartes}; {usuario.saborEmpanadasM}
             </div>
             <div>
               <p>Miercoles:</p>
-              {usuario.oPmiercoles}
+              {usuario.oPmiercoles}; {usuario.saborEmpanadasMc}
             </div>
             <div>
               <p>Jueves:</p>
-              {usuario.oPjueves}
+              {usuario.oPjueves}; {usuario.saborEmpanadasJ}
             </div>
             <div>
               <p>Viernes:</p>
-              {usuario.oPviernes}
+              {usuario.oPviernes}; {usuario.saborEmpanadasV}
             </div>
           </div>
           <div className="botonera">

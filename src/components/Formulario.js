@@ -11,11 +11,14 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
   const [oPmiercoles, setOpMiercoles] = useState("");
   const [oPjueves, setOpJueves] = useState("");
   const [oPviernes, setOpViernes] = useState("");
-  const [consumoStore, setConsumoStore] = useState([]);
-  // const [guardarDisabled, setGuardarDisabled] = useState(true);
+  const [saborEmpanadasL, setSaborEmpanadasL] = useState(""); // Nuevo estado para el sabor de las empanadas
+  const [saborEmpanadasM, setSaborEmpanadasM] = useState("");
+  const [saborEmpanadasMc, setSaborEmpanadasMc] = useState("");
+  const [saborEmpanadasJ, setSaborEmpanadasJ] = useState("");
+  const [saborEmpanadasV, setSaborEmpanadasV] = useState("");
 
   const navigate = useNavigate(); // Inicializa useNavigate para redirigir
-
+  /*
   const agregarConsumo = () => {
     setConsumoStore([
       ...consumoStore,
@@ -34,7 +37,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
       },
     ]);
   };
-
+*/
   const handleNombreChange = (e) => {
     setNombre(e.target.value);
   };
@@ -66,100 +69,26 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
   const handleoPviernesChange = (e) => {
     setOpViernes(e.target.value);
   };
-  /****imputs comidas dias */
-  const handleConsumoChangeL = (index, e) => {
-    const updatedConsumos = [...consumoStore];
-    updatedConsumos[index].comidaL = e.target.value;
-    setConsumoStore(updatedConsumos);
-    /* setGuardarDisabled(
-      updatedConsumos.every((item) => !item.comidaL && !item.gustoL)
-    );*/
+
+  const handleSaborEmpanadasChangeL = (e) => {
+    setSaborEmpanadasL(e.target.value);
   };
 
-  const handleConsumoChangeMt = (index, e) => {
-    const updatedConsumos = [...consumoStore];
-    updatedConsumos[index].comidaMt = e.target.value;
-    setConsumoStore(updatedConsumos);
-    /* setGuardarDisabled(
-      updatedConsumos.every((item) => !item.comidaMt && !item.gustoMt)
-    );*/
+  const handleSaborEmpanadasChangeM = (e) => {
+    setSaborEmpanadasM(e.target.value);
   };
 
-  const handleConsumoChangeMc = (index, e) => {
-    const updatedConsumos = [...consumoStore];
-    updatedConsumos[index].comidaMc = e.target.value;
-    setConsumoStore(updatedConsumos);
-    /*   setGuardarDisabled(
-      updatedConsumos.every((item) => !item.comidaMc && !item.gustoMc)
-    );*/
+  const handleSaborEmpanadasChangeMc = (e) => {
+    setSaborEmpanadasMc(e.target.value);
   };
 
-  const handleConsumoChangeJ = (index, e) => {
-    const updatedConsumos = [...consumoStore];
-    updatedConsumos[index].comidaJ = e.target.value;
-    setConsumoStore(updatedConsumos);
-    /*   setGuardarDisabled(
-      updatedConsumos.every((item) => !item.comidaJ && !item.gustoJ)
-    );*/
+  const handleSaborEmpanadasChangeJ = (e) => {
+    setSaborEmpanadasJ(e.target.value);
   };
 
-  const handleConsumoChangeV = (index, e) => {
-    const updatedConsumos = [...consumoStore];
-    updatedConsumos[index].comidaV = e.target.value;
-    setConsumoStore(updatedConsumos);
-    /*   setGuardarDisabled(
-      updatedConsumos.every((item) => !item.comidaV && !item.gustoV)
-    );*/
+  const handleSaborEmpanadasChangeV = (e) => {
+    setSaborEmpanadasV(e.target.value);
   };
-
-  /*** IMPUTS GUSTO **/
-
-  const handleGustoChangeL = (index, e) => {
-    const updatedConsumos = [...consumoStore];
-    updatedConsumos[index].gustoL = e.target.value;
-    setConsumoStore(updatedConsumos);
-    /*  setGuardarDisabled(
-      updatedConsumos.every((item) => !item.comidaL && !item.gustoL)
-    );*/
-  };
-
-  const handleGustoChangeMt = (index, e) => {
-    const updatedConsumos = [...consumoStore];
-    updatedConsumos[index].gustoMt = e.target.value;
-    setConsumoStore(updatedConsumos);
-    /*   setGuardarDisabled(
-      updatedConsumos.every((item) => !item.comidaMt && !item.gustoMt)
-    );*/
-  };
-
-  const handleGustoChangeMc = (index, e) => {
-    const updatedConsumos = [...consumoStore];
-    updatedConsumos[index].gustoMc = e.target.value;
-    setConsumoStore(updatedConsumos);
-    /*  setGuardarDisabled(
-      updatedConsumos.every((item) => !item.comidaMc && !item.gustoMc)
-    );*/
-  };
-
-  const handleGustoChangeJ = (index, e) => {
-    const updatedConsumos = [...consumoStore];
-    updatedConsumos[index].gustoJ = e.target.value;
-    setConsumoStore(updatedConsumos);
-    /*   setGuardarDisabled(
-      updatedConsumos.every((item) => !item.comidaJ && !item.gustoJ)
-    );*/
-  };
-
-  const handleGustoChangeV = (index, e) => {
-    const updatedConsumos = [...consumoStore];
-    updatedConsumos[index].gustoV = e.target.value;
-    setConsumoStore(updatedConsumos);
-    /*   setGuardarDisabled(
-      updatedConsumos.every((item) => !item.comidaV && !item.gustoV)
-    );*/
-  };
-
-  /************ */
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -175,7 +104,11 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
         oPmiercoles,
         oPjueves,
         oPviernes,
-        consumoStore,
+        saborEmpanadasL,
+        saborEmpanadasM,
+        saborEmpanadasMc,
+        saborEmpanadasJ,
+        saborEmpanadasV,
       },
     });
     setNombre("");
@@ -186,7 +119,12 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
     setOpMiercoles("");
     setOpJueves("");
     setOpViernes("");
-    setConsumoStore([]);
+    setSaborEmpanadasL("");
+    setSaborEmpanadasM("");
+    setSaborEmpanadasMc("");
+    setSaborEmpanadasJ("");
+    setSaborEmpanadasV("");
+
     // setGuardarDisabled(true);
     navigate("/lista"); // Redirige a la página "lista" después de guardar
   };
@@ -227,7 +165,12 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             <select
               className="selector"
               value={oPlunes}
-              onChange={handleoPlunesChange}
+              onChange={(e) => {
+                handleoPlunesChange(e);
+                if (e.target.value === "4 empanadas (pollo/carne/jyq/humita)") {
+                  setSaborEmpanadasL(""); // Reinicia el sabor si se selecciona
+                }
+              }}
             >
               <option className="yellow" value="seleccionar">
                 Seleccione
@@ -272,6 +215,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               >
                 4 empanadas (pollo/carne/jyq/humita)
               </option>
+
               <option
                 className="yellow"
                 value="Pechuga a la plancha con arroz blanco aceite y queso"
@@ -296,6 +240,16 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             </select>
           </label>
         </div>
+        {oPlunes === "4 empanadas (pollo/carne/jyq/humita)" && (
+          <div>
+            <input
+              placeholder="Ingrese cantidad y gusto"
+              type="text"
+              value={saborEmpanadasL}
+              onChange={handleSaborEmpanadasChangeL}
+            />
+          </div>
+        )}
         <div>
           <p>Martes:</p>
 
@@ -303,7 +257,12 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             <select
               className="selector"
               value={oPmartes}
-              onChange={handleoPmartesChange}
+              onChange={(e) => {
+                handleoPmartesChange(e);
+                if (e.target.value === "4 empanadas (pollo/carne/jyq/humita)") {
+                  setSaborEmpanadasM(""); // Reinicia el sabor si se selecciona
+                }
+              }}
             >
               <option className="yellow" value="seleccionar">
                 Seleccione
@@ -370,6 +329,16 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             </select>
           </label>
         </div>
+        {oPmartes === "4 empanadas (pollo/carne/jyq/humita)" && (
+          <div>
+            <input
+              placeholder="Ingrese cantidad y gusto"
+              type="text"
+              value={saborEmpanadasM}
+              onChange={handleSaborEmpanadasChangeM}
+            />
+          </div>
+        )}
         <div>
           <p>Miercoles:</p>
 
@@ -377,7 +346,12 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             <select
               className="selector"
               value={oPmiercoles}
-              onChange={handleoPmiercolesChange}
+              onChange={(e) => {
+                handleoPmiercolesChange(e);
+                if (e.target.value === "4 empanadas (pollo/carne/jyq/humita)") {
+                  setSaborEmpanadasMc(""); // Reinicia el sabor si se selecciona
+                }
+              }}
             >
               <option className="yellow" value="seleccionar">
                 Seleccione
@@ -443,6 +417,16 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             </select>
           </label>
         </div>
+        {oPmiercoles === "4 empanadas (pollo/carne/jyq/humita)" && (
+          <div>
+            <input
+              placeholder="Ingrese cantidad y gusto"
+              type="text"
+              value={saborEmpanadasMc}
+              onChange={handleSaborEmpanadasChangeMc}
+            />
+          </div>
+        )}
         <div>
           <p>Jueves:</p>
 
@@ -450,7 +434,12 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             <select
               className="selector"
               value={oPjueves}
-              onChange={handleoPjuevesChange}
+              onChange={(e) => {
+                handleoPjuevesChange(e);
+                if (e.target.value === "4 empanadas (pollo/carne/jyq/humita)") {
+                  setSaborEmpanadasJ(""); // Reinicia el sabor si se selecciona
+                }
+              }}
             >
               <option className="yellow" value="seleccionar">
                 Seleccione
@@ -516,7 +505,16 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             </select>
           </label>
         </div>
-
+        {oPjueves === "4 empanadas (pollo/carne/jyq/humita)" && (
+          <div>
+            <input
+              placeholder="Ingrese cantidad y gusto"
+              type="text"
+              value={saborEmpanadasJ}
+              onChange={handleSaborEmpanadasChangeJ}
+            />
+          </div>
+        )}
         <div>
           <p>Viernes:</p>
 
@@ -524,7 +522,12 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             <select
               className="selector"
               value={oPviernes}
-              onChange={handleoPviernesChange}
+              onChange={(e) => {
+                handleoPviernesChange(e);
+                if (e.target.value === "4 empanadas (pollo/carne/jyq/humita)") {
+                  setSaborEmpanadasV(""); // Reinicia el sabor si se selecciona
+                }
+              }}
             >
               <option className="yellow" value="seleccionar">
                 Seleccione
@@ -586,7 +589,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                 Ensalada caesar
               </option>
               <option className="yellow" value="Ensalada Lelucha">
-                Ensalada Lelucha
+                Ensalada lechuga
               </option>
               <option className="yellow" value="Ensalada primavera">
                 Ensalada primavera
@@ -594,6 +597,16 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             </select>
           </label>
         </div>
+        {oPviernes === "4 empanadas (pollo/carne/jyq/humita)" && (
+          <div>
+            <input
+              placeholder="Ingrese cantidad y gusto"
+              type="text"
+              value={saborEmpanadasV}
+              onChange={handleSaborEmpanadasChangeV}
+            />
+          </div>
+        )}
       </div>
       <div>
         <button
