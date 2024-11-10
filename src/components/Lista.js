@@ -130,6 +130,17 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
                       saborEmpanadasL: "", // Resetea el sabor
                       oPlunes: e.target.value,
                     });
+                  } else if (
+                    e.target.value !==
+                    "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+                  ) {
+                    // Resetea saborTartaL a una cadena vacía
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborTartaL: "", // Resetea el sabor
+                      oPlunes: e.target.value,
+                    });
                   } else {
                     onChangeComidas({
                       type: "EDITAR_COMIDA",
@@ -206,7 +217,7 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
               </select>
             </label>
           </div>
-          {usuario.oPlunes === "4 empanadas (pollo/carne/jyq/humita)" && (
+          {(usuario.oPlunes === "4 empanadas (pollo/carne/jyq/humita)" && (
             <div>
               <p>Gusto:</p>
               <input
@@ -220,7 +231,23 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
                 }}
               />
             </div>
-          )}
+          )) ||
+            (usuario.oPlunes ===
+              "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" && (
+              <div>
+                <p>Gusto:</p>
+                <input
+                  value={usuario.saborTartaL}
+                  onChange={(e) => {
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborTartaL: e.target.value,
+                    });
+                  }}
+                />
+              </div>
+            ))}
 
           <div>
             <p>Martes:</p>
@@ -229,11 +256,33 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
                 className="selector"
                 value={usuario.oPmartes}
                 onChange={(e) => {
-                  onChangeComidas({
-                    type: "EDITAR_COMIDA",
-                    ...usuario,
-                    oPmartes: e.target.value,
-                  });
+                  if (
+                    e.target.value !== "4 empanadas (pollo/carne/jyq/humita)"
+                  ) {
+                    // Resetea saborEmpanadasL a una cadena vacía
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborEmpanadasM: "", // Resetea el sabor
+                      oPmartes: e.target.value,
+                    });
+                  } else if (
+                    e.target.value ===
+                    "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+                  ) {
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborTartaM: "", // Resetea el sabor
+                      oPmartes: e.target.value,
+                    });
+                  } else {
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      oPmartes: e.target.value,
+                    });
+                  }
                 }}
               >
                 <option className="yellow" value="seleccionar">
@@ -301,6 +350,37 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
               </select>
             </label>
           </div>
+          {(usuario.oPmartes === "4 empanadas (pollo/carne/jyq/humita)" && (
+            <div>
+              <p>Gusto:</p>
+              <input
+                value={usuario.saborEmpanadasM}
+                onChange={(e) => {
+                  onChangeComidas({
+                    type: "EDITAR_COMIDA",
+                    ...usuario,
+                    saborEmpanadasM: e.target.value,
+                  });
+                }}
+              />
+            </div>
+          )) ||
+            (usuario.oPmartes ===
+              "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" && (
+              <div>
+                <p>Gusto:</p>
+                <input
+                  value={usuario.saborTartaM}
+                  onChange={(e) => {
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborTartaM: e.target.value,
+                    });
+                  }}
+                />
+              </div>
+            ))}
           <div>
             <p>Miercoles:</p>
             <label>
@@ -308,11 +388,34 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
                 className="selector"
                 value={usuario.oPmiercoles}
                 onChange={(e) => {
-                  onChangeComidas({
-                    type: "EDITAR_COMIDA",
-                    ...usuario,
-                    oPmiercoles: e.target.value,
-                  });
+                  if (
+                    e.target.value !== "4 empanadas (pollo/carne/jyq/humita)"
+                  ) {
+                    // Resetea saborEmpanadasL a una cadena vacía
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborEmpanadasMc: "", // Resetea el sabor
+                      oPmiercoles: e.target.value,
+                    });
+                  } else if (
+                    e.target.value !==
+                    "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+                  ) {
+                    // Resetea saborTartaL a una cadena vacía
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborTartaMc: "", // Resetea el sabor
+                      oPmiercoles: e.target.value,
+                    });
+                  } else {
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      oPmiercoles: e.target.value,
+                    });
+                  }
                 }}
               >
                 <option className="yellow" value="seleccionar">
@@ -379,6 +482,37 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
               </select>
             </label>
           </div>
+          {(usuario.oPmiercoles === "4 empanadas (pollo/carne/jyq/humita)" && (
+            <div>
+              <p>Gusto:</p>
+              <input
+                value={usuario.saborEmpanadasMc}
+                onChange={(e) => {
+                  onChangeComidas({
+                    type: "EDITAR_COMIDA",
+                    ...usuario,
+                    saborEmpanadasMc: e.target.value,
+                  });
+                }}
+              />
+            </div>
+          )) ||
+            (usuario.oPmiercoles ===
+              "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" && (
+              <div>
+                <p>Gusto:</p>
+                <input
+                  value={usuario.saborTartaMc}
+                  onChange={(e) => {
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborTartaMc: e.target.value,
+                    });
+                  }}
+                />
+              </div>
+            ))}
           <div>
             <p>Jueves:</p>
             <label>
@@ -386,11 +520,34 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
                 className="selector"
                 value={usuario.oPjueves}
                 onChange={(e) => {
-                  onChangeComidas({
-                    type: "EDITAR_COMIDA",
-                    ...usuario,
-                    oPjueves: e.target.value,
-                  });
+                  if (
+                    e.target.value !== "4 empanadas (pollo/carne/jyq/humita)"
+                  ) {
+                    // Resetea saborEmpanadasL a una cadena vacía
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborEmpanadasJ: "", // Resetea el sabor
+                      oPjueves: e.target.value,
+                    });
+                  } else if (
+                    e.target.value !==
+                    "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+                  ) {
+                    // Resetea saborTartaL a una cadena vacía
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborTartaJ: "", // Resetea el sabor
+                      oPjueves: e.target.value,
+                    });
+                  } else {
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      oPjueves: e.target.value,
+                    });
+                  }
                 }}
               >
                 <option className="yellow" value="seleccionar">
@@ -457,6 +614,37 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
               </select>
             </label>
           </div>
+          {(usuario.oPjueves === "4 empanadas (pollo/carne/jyq/humita)" && (
+            <div>
+              <p>Gusto:</p>
+              <input
+                value={usuario.saborEmpanadasJ}
+                onChange={(e) => {
+                  onChangeComidas({
+                    type: "EDITAR_COMIDA",
+                    ...usuario,
+                    saborEmpanadasJ: e.target.value,
+                  });
+                }}
+              />
+            </div>
+          )) ||
+            (usuario.oPjueves ===
+              "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" && (
+              <div>
+                <p>Gusto:</p>
+                <input
+                  value={usuario.saborTartaJ}
+                  onChange={(e) => {
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborTartaJ: e.target.value,
+                    });
+                  }}
+                />
+              </div>
+            ))}
           <div>
             <p>Viernes:</p>
             <label>
@@ -464,11 +652,44 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
                 className="selector"
                 value={usuario.oPviernes}
                 onChange={(e) => {
-                  onChangeComidas({
-                    type: "EDITAR_COMIDA",
-                    ...usuario,
-                    oPviernes: e.target.value,
-                  });
+                  if (
+                    e.target.value !== "4 empanadas (pollo/carne/jyq/humita)"
+                  ) {
+                    // Resetea saborEmpanadasL a una cadena vacía
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborEmpanadasV: "", // Resetea el sabor
+                      oPviernes: e.target.value,
+                    });
+                  } else if (
+                    e.target.value !==
+                    "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+                  ) {
+                    // Resetea saborTartaL a una cadena vacía
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborTartaV: "", // Resetea el sabor
+                      oPviernes: e.target.value,
+                    });
+                  } else if (
+                    e.target.value !==
+                    "Milanesa de vegetales (calabaza, zucchini o berenjena) con batatas al horno"
+                  ) {
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborMilanesaV: "", // Resetea el sabor
+                      oPviernes: e.target.value,
+                    });
+                  } else {
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      oPviernes: e.target.value,
+                    });
+                  }
                 }}
               >
                 <option className="yellow" value="seleccionar">
@@ -539,6 +760,53 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
               </select>
             </label>
           </div>
+          {(usuario.oPviernes === "4 empanadas (pollo/carne/jyq/humita)" && (
+            <div>
+              <p>Gusto:</p>
+              <input
+                value={usuario.saborEmpanadasV}
+                onChange={(e) => {
+                  onChangeComidas({
+                    type: "EDITAR_COMIDA",
+                    ...usuario,
+                    saborEmpanadasV: e.target.value,
+                  });
+                }}
+              />
+            </div>
+          )) ||
+            (usuario.oPviernes ===
+              "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" && (
+              <div>
+                <p>Gusto:</p>
+                <input
+                  value={usuario.saborTartaV}
+                  onChange={(e) => {
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborTartaV: e.target.value,
+                    });
+                  }}
+                />
+              </div>
+            )) ||
+            (usuario.oPviernes ===
+              "Milanesa de vegetales (calabaza, zucchini o berenjena) con batatas al horno" && (
+              <div>
+                <p>Gusto:</p>
+                <input
+                  value={usuario.saborMilanesaV}
+                  onChange={(e) => {
+                    onChangeComidas({
+                      type: "EDITAR_COMIDA",
+                      ...usuario,
+                      saborMilanesaV: e.target.value,
+                    });
+                  }}
+                />
+              </div>
+            ))}
         </div>
         <div className="botonera">
           <button
@@ -572,25 +840,87 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
                 <>
                   {usuario.oPlunes}; {usuario.saborEmpanadasL}
                 </>
+              ) : usuario.oPlunes ||
+                usuario.oPlunes ===
+                  "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" ? (
+                <>
+                  {usuario.oPlunes}; {usuario.saborTartaL}
+                </>
               ) : (
                 usuario.oPlunes
               )}
             </div>
             <div>
               <p> Martes:</p>
-              {usuario.oPmartes}; {usuario.saborEmpanadasM}
+              {usuario.oPmartes === "4 empanadas (pollo/carne/jyq/humita)" ? (
+                <>
+                  {usuario.oPmartes}; {usuario.saborEmpanadasM}
+                </>
+              ) : usuario.oPmartes ||
+                usuario.oPmartes ===
+                  "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" ? (
+                <>
+                  {usuario.oPmartes}; {usuario.saborTartaM}
+                </>
+              ) : (
+                usuario.oPmartes
+              )}
             </div>
             <div>
               <p>Miercoles:</p>
-              {usuario.oPmiercoles}; {usuario.saborEmpanadasMc}
+              {usuario.oPmiercoles ===
+              "4 empanadas (pollo/carne/jyq/humita)" ? (
+                <>
+                  {usuario.oPmiercoles}; {usuario.saborEmpanadasMc}
+                </>
+              ) : usuario.oPmiercoles ||
+                usuario.oPmiercoles ===
+                  "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" ? (
+                <>
+                  {usuario.oPmiercoles}; {usuario.saborTartaMc}
+                </>
+              ) : (
+                usuario.oPmiercoles
+              )}
             </div>
             <div>
               <p>Jueves:</p>
-              {usuario.oPjueves}; {usuario.saborEmpanadasJ}
+              {usuario.oPjueves === "4 empanadas (pollo/carne/jyq/humita)" ? (
+                <>
+                  {usuario.oPjueves}; {usuario.saborEmpanadasJ}
+                </>
+              ) : usuario.oPjueves ||
+                usuario.oPjueves ===
+                  "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" ? (
+                <>
+                  {usuario.oPjueves}; {usuario.saborTartaJ}
+                </>
+              ) : (
+                usuario.oPjueves
+              )}
             </div>
             <div>
               <p>Viernes:</p>
-              {usuario.oPviernes}; {usuario.saborEmpanadasV}
+
+              {usuario.oPviernes === "4 empanadas (pollo/carne/jyq/humita)" ? (
+                <>
+                  {usuario.oPviernes}; {usuario.saborEmpanadasV}
+                </>
+              ) : usuario.oPviernes &&
+                usuario.oPviernes ===
+                  "Milanesa de vegetales (calabaza, zucchini o berenjena) con batatas al horno" ? (
+                <>
+                  {usuario.oPviernes}; {usuario.saborMilanesaV}
+                </>
+              ) : usuario.oPviernes ||
+                usuario.oPviernes ===
+                  "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" ? (
+                <>
+                  {usuario.oPviernes}; {usuario.saborTartaV}
+                </>
+              ) : (
+                usuario.oPviernes
+              )}
             </div>
           </div>
           <div className="botonera">

@@ -16,6 +16,16 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
   const [saborEmpanadasMc, setSaborEmpanadasMc] = useState("");
   const [saborEmpanadasJ, setSaborEmpanadasJ] = useState("");
   const [saborEmpanadasV, setSaborEmpanadasV] = useState("");
+  const [saborTartaL, setSaborTartaL] = useState(""); // Nuevo estado para el sabor de las empanadas
+  const [saborTartaM, setSaborTartaM] = useState("");
+  const [saborTartaMc, setSaborTartaMc] = useState("");
+  const [saborTartaJ, setSaborTartaJ] = useState("");
+  const [saborTartaV, setSaborTartaV] = useState("");
+  //const [saborMilanesaL, setSaborMilanesaL] = useState("");
+  //const [saborMilanesaM, setSaborMilanesaM] = useState("");
+  //const [saborMilanesaMc, setSaborMilanesaMc] = useState("");
+  //const [saborMilanesaJ, setSaborMilanesaJ] = useState("");
+  const [saborMilanesaV, setSaborMilanesaV] = useState("");
 
   const navigate = useNavigate(); // Inicializa useNavigate para redirigir
   /*
@@ -90,6 +100,40 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
     setSaborEmpanadasV(e.target.value);
   };
 
+  const handleSaborTartaChangeL = (e) => {
+    setSaborTartaL(e.target.value);
+  };
+  const handleSaborTartaChangeM = (e) => {
+    setSaborTartaM(e.target.value);
+  };
+  const handleSaborTartaChangeMc = (e) => {
+    setSaborTartaMc(e.target.value);
+  };
+  const handleSaborTartaChangeJ = (e) => {
+    setSaborTartaJ(e.target.value);
+  };
+  const handleSaborTartaChangeV = (e) => {
+    setSaborTartaV(e.target.value);
+  };
+
+  /*
+  const handleSaborMilanesaChangeL = (e) => {
+    setSaborMilanesaL(e.target.value);
+  };
+  const handleSaborMilanesaChangeM = (e) => {
+    setSaborMilanesaM(e.target.value);
+  };
+  const handleSaborMilanesaChangeMc = (e) => {
+    setSaborMilanesaMc(e.target.value);
+  };
+  const handleSaborMilanesaChangeJ = (e) => {
+    setSaborMilanesaJ(e.target.value);
+  }; */
+
+  const handleSaborMilanesaChangeV = (e) => {
+    setSaborMilanesaV(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({
@@ -109,6 +153,16 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
         saborEmpanadasMc,
         saborEmpanadasJ,
         saborEmpanadasV,
+        saborTartaL,
+        saborTartaM,
+        saborTartaMc,
+        saborTartaJ,
+        saborTartaV,
+        //saborMilanesaL,
+        //saborMilanesaM,
+        //saborMilanesaMc,
+        //saborMilanesaJ,
+        saborMilanesaV,
       },
     });
     setNombre("");
@@ -124,6 +178,16 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
     setSaborEmpanadasMc("");
     setSaborEmpanadasJ("");
     setSaborEmpanadasV("");
+    setSaborTartaL("");
+    setSaborTartaM("");
+    setSaborTartaMc("");
+    setSaborTartaJ("");
+    setSaborTartaV("");
+    //setSaborMilanesaL("");
+    //setSaborMilanesaM("");
+    //setSaborMilanesaMc("");
+    //setSaborMilanesaJ("");
+    setSaborMilanesaV("");
 
     // setGuardarDisabled(true);
     navigate("/lista"); // Redirige a la página "lista" después de guardar
@@ -169,6 +233,11 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                 handleoPlunesChange(e);
                 if (e.target.value === "4 empanadas (pollo/carne/jyq/humita)") {
                   setSaborEmpanadasL(""); // Reinicia el sabor si se selecciona
+                } else if (
+                  e.target.value ===
+                  "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+                ) {
+                  setSaborTartaL("");
                 }
               }}
             >
@@ -240,7 +309,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             </select>
           </label>
         </div>
-        {oPlunes === "4 empanadas (pollo/carne/jyq/humita)" && (
+        {(oPlunes === "4 empanadas (pollo/carne/jyq/humita)" && (
           <div>
             <input
               placeholder="Ingrese cantidad y gusto"
@@ -249,7 +318,18 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               onChange={handleSaborEmpanadasChangeL}
             />
           </div>
-        )}
+        )) ||
+          (oPlunes ===
+            "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" && (
+            <div>
+              <input
+                placeholder="Ingrese gusto"
+                type="text"
+                value={saborTartaL}
+                onChange={handleSaborTartaChangeL}
+              />
+            </div>
+          ))}
         <div>
           <p>Martes:</p>
 
@@ -261,6 +341,11 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                 handleoPmartesChange(e);
                 if (e.target.value === "4 empanadas (pollo/carne/jyq/humita)") {
                   setSaborEmpanadasM(""); // Reinicia el sabor si se selecciona
+                } else if (
+                  e.target.value ===
+                  "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+                ) {
+                  setSaborTartaM("");
                 }
               }}
             >
@@ -329,7 +414,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             </select>
           </label>
         </div>
-        {oPmartes === "4 empanadas (pollo/carne/jyq/humita)" && (
+        {(oPmartes === "4 empanadas (pollo/carne/jyq/humita)" && (
           <div>
             <input
               placeholder="Ingrese cantidad y gusto"
@@ -338,7 +423,18 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               onChange={handleSaborEmpanadasChangeM}
             />
           </div>
-        )}
+        )) ||
+          (oPmartes ===
+            "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" && (
+            <div>
+              <input
+                placeholder="Ingrese gusto"
+                type="text"
+                value={saborTartaM}
+                onChange={handleSaborTartaChangeM}
+              />
+            </div>
+          ))}
         <div>
           <p>Miercoles:</p>
 
@@ -350,6 +446,11 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                 handleoPmiercolesChange(e);
                 if (e.target.value === "4 empanadas (pollo/carne/jyq/humita)") {
                   setSaborEmpanadasMc(""); // Reinicia el sabor si se selecciona
+                } else if (
+                  e.target.value ===
+                  "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+                ) {
+                  setSaborTartaMc("");
                 }
               }}
             >
@@ -417,7 +518,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             </select>
           </label>
         </div>
-        {oPmiercoles === "4 empanadas (pollo/carne/jyq/humita)" && (
+        {(oPmiercoles === "4 empanadas (pollo/carne/jyq/humita)" && (
           <div>
             <input
               placeholder="Ingrese cantidad y gusto"
@@ -426,7 +527,18 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               onChange={handleSaborEmpanadasChangeMc}
             />
           </div>
-        )}
+        )) ||
+          (oPmiercoles ===
+            "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" && (
+            <div>
+              <input
+                placeholder="Ingrese gusto"
+                type="text"
+                value={saborTartaMc}
+                onChange={handleSaborTartaChangeMc}
+              />
+            </div>
+          ))}
         <div>
           <p>Jueves:</p>
 
@@ -438,6 +550,11 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                 handleoPjuevesChange(e);
                 if (e.target.value === "4 empanadas (pollo/carne/jyq/humita)") {
                   setSaborEmpanadasJ(""); // Reinicia el sabor si se selecciona
+                } else if (
+                  e.target.value ===
+                  "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+                ) {
+                  setSaborTartaJ("");
                 }
               }}
             >
@@ -505,7 +622,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             </select>
           </label>
         </div>
-        {oPjueves === "4 empanadas (pollo/carne/jyq/humita)" && (
+        {(oPjueves === "4 empanadas (pollo/carne/jyq/humita)" && (
           <div>
             <input
               placeholder="Ingrese cantidad y gusto"
@@ -514,7 +631,18 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               onChange={handleSaborEmpanadasChangeJ}
             />
           </div>
-        )}
+        )) ||
+          (oPjueves ===
+            "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" && (
+            <div>
+              <input
+                placeholder="Ingrese gusto"
+                type="text"
+                value={saborTartaJ}
+                onChange={handleSaborTartaChangeJ}
+              />
+            </div>
+          ))}
         <div>
           <p>Viernes:</p>
 
@@ -526,6 +654,16 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                 handleoPviernesChange(e);
                 if (e.target.value === "4 empanadas (pollo/carne/jyq/humita)") {
                   setSaborEmpanadasV(""); // Reinicia el sabor si se selecciona
+                } else if (
+                  e.target.value ===
+                  "Milanesa de vegetales (calabaza, zucchini o berenjena) con batatas al horno"
+                ) {
+                  setSaborMilanesaV("");
+                } else if (
+                  e.target.value ===
+                  "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
+                ) {
+                  setSaborTartaV("");
                 }
               }}
             >
@@ -597,7 +735,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             </select>
           </label>
         </div>
-        {oPviernes === "4 empanadas (pollo/carne/jyq/humita)" && (
+        {(oPviernes === "4 empanadas (pollo/carne/jyq/humita)" && (
           <div>
             <input
               placeholder="Ingrese cantidad y gusto"
@@ -606,7 +744,29 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               onChange={handleSaborEmpanadasChangeV}
             />
           </div>
-        )}
+        )) ||
+          (oPviernes ===
+            "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)" && (
+            <div>
+              <input
+                placeholder="Ingrese gusto"
+                type="text"
+                value={saborTartaV}
+                onChange={handleSaborTartaChangeV}
+              />
+            </div>
+          )) ||
+          (oPviernes ===
+            "Milanesa de vegetales (calabaza, zucchini o berenjena) con batatas al horno" && (
+            <div>
+              <input
+                placeholder="Ingrese gusto"
+                type="text"
+                value={saborMilanesaV}
+                onChange={handleSaborMilanesaChangeV}
+              />
+            </div>
+          ))}
       </div>
       <div>
         <button
