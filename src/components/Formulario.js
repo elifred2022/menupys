@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Link, useNavigate } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 const Formulario = ({ onAgregarConsumo, dispatch }) => {
   const [nombre, setNombre] = useState("");
@@ -26,6 +27,8 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
   //const [saborMilanesaMc, setSaborMilanesaMc] = useState("");
   //const [saborMilanesaJ, setSaborMilanesaJ] = useState("");
   const [saborMilanesaV, setSaborMilanesaV] = useState("");
+
+  const form = useRef();
 
   const navigate = useNavigate(); // Inicializa useNavigate para redirigir
   /*
@@ -136,6 +139,20 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    emailjs
+      .sendForm("service_pad444t", "template_n3d7zna", form.current, {
+        publicKey: "Lfqdb8OfXO68L-vVt",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+
     dispatch({
       type: "AGREGAR_COMIDA",
       payload: {
@@ -194,7 +211,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
   };
 
   return (
-    <form className="formulario" onSubmit={handleSubmit}>
+    <form ref={form} className="formulario" onSubmit={handleSubmit}>
       <div className="consumo">
         <div>
           <p>Nombre:</p>
@@ -203,6 +220,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             type="text"
             value={nombre}
             onChange={handleNombreChange}
+            name="nombre"
           />
         </div>
         <div>

@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Formulario from "./components/Formulario";
 import Lista from "./components/Lista";
 import { Routes, Route } from "react-router-dom";
+import { Mailer } from "./components/Mailer";
 
 function App() {
   const [storedState, setStoredState] = useState(() => {
