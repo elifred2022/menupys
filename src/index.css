@@ -89,7 +89,8 @@ header {
 }
 
 .formulario input[type="text"],
-.formulario input[type="date"] {
+.formulario input[type="date"],
+.formulario input[type="email"] {
   flex: 1;
   padding: 8px;
   border: 1px solid #64b5f6;
@@ -102,6 +103,7 @@ header {
 .formulario input[type="date"]:focus {
   border-color: #1976d2;
 }
+
 
 .my-button_agregar {
   display: block;
@@ -180,4 +182,41 @@ header {
   font-weight: bold;
   text-align: center;
   transition: background-color 0.3s;
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 768px) {
+  header {
+    height: 70px;
+    justify-content: center;
+    padding: 0 10px;
+    font-size: 0.9em;
+  }
+
+  main {
+    padding-top: 90px; /* Ajuste para el header más pequeño */
+  }
+
+  .formulario, .lista {
+    padding: 15px;
+    width: 90%;
+  }
+
+  .my-button_agregar, .my-button_editar, .my-button_eliminar {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .formulario .consumo div,
+  .lista .contenido div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .formulario input[type="text"],
+  .formulario input[type="date"],
+  .formulario input[type="email"] {
+    width: 100%;
+  }
 }

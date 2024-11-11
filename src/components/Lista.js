@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function ListaComidas({ state, dispatch, onChangeComidas }) {
   return (
@@ -23,6 +24,8 @@ export default function ListaComidas({ state, dispatch, onChangeComidas }) {
 
 function Foods({ onChangeComidas, usuario, index, dispatch }) {
   const [isEditing, setIsEditing] = useState(false);
+
+  const navigate = useNavigate(); // Inicializa useNavigate para redirigir
 
   // Función para actualizar los inputs
   const handleInputChange = (e, consumoIndex, field) => {
@@ -824,6 +827,9 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
         <div className="lista">
           <div>
             <h3>{usuario.nombre}</h3>
+          </div>
+          <div>
+            <h3>{usuario.email}</h3>
           </div>
           <div className="contenido">
             <div>

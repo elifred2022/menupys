@@ -5,6 +5,7 @@ import emailjs from "@emailjs/browser";
 
 const Formulario = ({ onAgregarConsumo, dispatch }) => {
   const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
   const [fechaDesde, setFechaDesde] = useState("");
   const [fechaHasta, setFechaHasta] = useState("");
   const [oPlunes, setOpLunes] = useState("");
@@ -53,6 +54,10 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
 */
   const handleNombreChange = (e) => {
     setNombre(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
   };
 
   const handleFechaDesdeChange = (e) => {
@@ -140,6 +145,12 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Pregunta de confirmación
+    const confirmSubmit = window.confirm("¿Confirma enviar su menu?");
+    if (!confirmSubmit) {
+      return; // Si el usuario cancela, no se envía el formulario
+    }
+
     emailjs
       .sendForm("service_pad444t", "template_n3d7zna", form.current, {
         publicKey: "Lfqdb8OfXO68L-vVt",
@@ -158,6 +169,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
       payload: {
         id: uuidv4(),
         nombre,
+        email,
         fechaDesde,
         fechaHasta,
         oPlunes,
@@ -183,6 +195,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
       },
     });
     setNombre("");
+    setEmail("");
     setFechaDesde("");
     setFechaHasta("");
     setOpLunes("");
@@ -224,12 +237,23 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
           />
         </div>
         <div>
+          <p>email:</p>
+          <input
+            placeholder="Ingrese email"
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+            name="email"
+          />
+        </div>
+        <div>
           <p>Desde</p>
           <input
             placeholder="Desde"
             type="date"
             value={fechaDesde}
             onChange={handleFechaDesdeChange}
+            name="fechaDesde"
           />
         </div>
         <div>
@@ -239,6 +263,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             type="date"
             value={fechaHasta}
             onChange={handleFechaHastaChange}
+            name="fechaHasta"
           />
         </div>
         <div>
@@ -246,6 +271,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
           <label>
             <select
               className="selector"
+              name="oPlunes"
               value={oPlunes}
               onChange={(e) => {
                 handleoPlunesChange(e);
@@ -333,6 +359,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               placeholder="Ingrese cantidad y gusto"
               type="text"
               value={saborEmpanadasL}
+              name="saborEmpanadasL"
               onChange={handleSaborEmpanadasChangeL}
             />
           </div>
@@ -344,6 +371,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                 placeholder="Ingrese gusto"
                 type="text"
                 value={saborTartaL}
+                name="saborTartaL"
                 onChange={handleSaborTartaChangeL}
               />
             </div>
@@ -355,6 +383,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             <select
               className="selector"
               value={oPmartes}
+              name="oPmartes"
               onChange={(e) => {
                 handleoPmartesChange(e);
                 if (e.target.value === "4 empanadas (pollo/carne/jyq/humita)") {
@@ -438,6 +467,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               placeholder="Ingrese cantidad y gusto"
               type="text"
               value={saborEmpanadasM}
+              name="saborEmpanadasM"
               onChange={handleSaborEmpanadasChangeM}
             />
           </div>
@@ -449,6 +479,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                 placeholder="Ingrese gusto"
                 type="text"
                 value={saborTartaM}
+                name="saborTartaM"
                 onChange={handleSaborTartaChangeM}
               />
             </div>
@@ -460,6 +491,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             <select
               className="selector"
               value={oPmiercoles}
+              name="oPmiercoles"
               onChange={(e) => {
                 handleoPmiercolesChange(e);
                 if (e.target.value === "4 empanadas (pollo/carne/jyq/humita)") {
@@ -542,6 +574,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               placeholder="Ingrese cantidad y gusto"
               type="text"
               value={saborEmpanadasMc}
+              name="saborEmpanadasMc"
               onChange={handleSaborEmpanadasChangeMc}
             />
           </div>
@@ -553,6 +586,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                 placeholder="Ingrese gusto"
                 type="text"
                 value={saborTartaMc}
+                name="saborTartaMc"
                 onChange={handleSaborTartaChangeMc}
               />
             </div>
@@ -564,6 +598,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             <select
               className="selector"
               value={oPjueves}
+              name="oPjueves"
               onChange={(e) => {
                 handleoPjuevesChange(e);
                 if (e.target.value === "4 empanadas (pollo/carne/jyq/humita)") {
@@ -646,6 +681,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               placeholder="Ingrese cantidad y gusto"
               type="text"
               value={saborEmpanadasJ}
+              name="saborEmpanadasJ"
               onChange={handleSaborEmpanadasChangeJ}
             />
           </div>
@@ -657,6 +693,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                 placeholder="Ingrese gusto"
                 type="text"
                 value={saborTartaJ}
+                name="saborTartaJ"
                 onChange={handleSaborTartaChangeJ}
               />
             </div>
@@ -668,6 +705,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             <select
               className="selector"
               value={oPviernes}
+              name="oPviernes"
               onChange={(e) => {
                 handleoPviernesChange(e);
                 if (e.target.value === "4 empanadas (pollo/carne/jyq/humita)") {
@@ -759,6 +797,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               placeholder="Ingrese cantidad y gusto"
               type="text"
               value={saborEmpanadasV}
+              name="saborEmpanadasV"
               onChange={handleSaborEmpanadasChangeV}
             />
           </div>
@@ -770,6 +809,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                 placeholder="Ingrese gusto"
                 type="text"
                 value={saborTartaV}
+                name="saborTartaV"
                 onChange={handleSaborTartaChangeV}
               />
             </div>
@@ -781,6 +821,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                 placeholder="Ingrese gusto"
                 type="text"
                 value={saborMilanesaV}
+                name="saborMilanesaV"
                 onChange={handleSaborMilanesaChangeV}
               />
             </div>
@@ -792,7 +833,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
           // disabled={guardarDisabled}
           className="my-button_agregar"
         >
-          GUARDAR
+          Enviar
         </button>
       </div>
     </form>
