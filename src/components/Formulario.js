@@ -151,6 +151,8 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
       return; // Si el usuario cancela, no se envía el formulario
     }
 
+    alert("Su orden fue enviada con éxito.");
+
     emailjs
       .sendForm("service_pad444t", "template_n3d7zna", form.current, {
         publicKey: "Lfqdb8OfXO68L-vVt",
