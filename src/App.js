@@ -2,8 +2,8 @@ import Reducer, { initialState } from "./reducer/Reducer";
 import { useState, useEffect, useReducer } from "react";
 import Header from "./components/Header";
 import Formulario from "./components/Formulario";
-import Lista from "./components/Lista";
-import { Routes, Route } from "react-router-dom";
+//import Lista from "./components/Lista";
+
 import { Mailer } from "./components/Mailer";
 
 function App() {
@@ -37,35 +37,18 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Formulario
-                dispatch={dispatch}
-                onAgregarConsumo={agregarConsumo}
-              />
-            }
-          />
-
-          <Route>
-            <Route
-              path="/lista"
-              element={
-                <Lista
-                  consumoStore={consumosListados}
-                  comidas={state.comidas}
-                  state={state}
-                  dispatch={dispatch}
-                  onChangeComidas={handleChangeComidas}
-                />
-              }
-            />
-          </Route>
-        </Routes>
+        <Formulario dispatch={dispatch} onAgregarConsumo={agregarConsumo} />
       </main>
     </div>
   );
 }
 
 export default App;
+
+/*<Lista
+          consumoStore={consumosListados}
+          comidas={state.comidas}
+          state={state}
+          dispatch={dispatch}
+          onChangeComidas={handleChangeComidas}
+        />*/

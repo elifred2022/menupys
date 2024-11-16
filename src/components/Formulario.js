@@ -146,7 +146,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
     e.preventDefault();
 
     // Pregunta de confirmación
-    const confirmSubmit = window.confirm("¿Confirma enviar su menu?");
+    const confirmSubmit = window.confirm("¿Confirma su orden?");
     if (!confirmSubmit) {
       return; // Si el usuario cancela, no se envía el formulario
     }
@@ -163,7 +163,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
           console.log("FAILED...", error.text);
         }
       );
-
+    /*
     dispatch({
       type: "AGREGAR_COMIDA",
       payload: {
@@ -193,7 +193,8 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
         //saborMilanesaJ,
         saborMilanesaV,
       },
-    });
+    }); */ // ACA ESTA LA LOGICA PARA ENVIAR AL LOCAL STORAGE
+
     setNombre("");
     setEmail("");
     setFechaDesde("");

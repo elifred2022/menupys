@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 export default function ListaComidas({ state, dispatch, onChangeComidas }) {
   return (
@@ -826,22 +827,22 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
       <>
         <div className="lista">
           <div>
-            <h3>{usuario.nombre}</h3>
+            <h3 name="nombre">{usuario.nombre}</h3>
           </div>
           <div>
-            <h3>{usuario.email}</h3>
+            <h3 name="email">{usuario.email}</h3>
           </div>
+          <h3>Su orden:</h3>
           <div className="contenido">
             <div>
               <p>Desde:</p>
-              {usuario.fechaDesde} {/* formatDate(usuario.fechaDesde) */}
+              {usuario.fechaDesde}
             </div>
             <div>
-              <p> Hasta:</p>
-              {usuario.fechaHasta} {/* formatDate(usuario.fechaHasta) */}
+              <p> Hasta:</p> {usuario.fechaHasta}
             </div>
             <div>
-              <p>Lunes:</p>
+              <p>Lunes:</p>{" "}
               {usuario.oPlunes === "4 empanadas (pollo/carne/jyq/humita)" ? (
                 <>
                   {usuario.oPlunes}; {usuario.saborEmpanadasL}
@@ -857,7 +858,7 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
               )}
             </div>
             <div>
-              <p> Martes:</p>
+              <p> Martes:</p>{" "}
               {usuario.oPmartes === "4 empanadas (pollo/carne/jyq/humita)" ? (
                 <>
                   {usuario.oPmartes}; {usuario.saborEmpanadasM}
@@ -873,7 +874,7 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
               )}
             </div>
             <div>
-              <p>Miercoles:</p>
+              <p>Miercoles:</p>{" "}
               {usuario.oPmiercoles ===
               "4 empanadas (pollo/carne/jyq/humita)" ? (
                 <>
@@ -890,7 +891,7 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
               )}
             </div>
             <div>
-              <p>Jueves:</p>
+              <p>Jueves:</p>{" "}
               {usuario.oPjueves === "4 empanadas (pollo/carne/jyq/humita)" ? (
                 <>
                   {usuario.oPjueves}; {usuario.saborEmpanadasJ}
@@ -906,8 +907,7 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
               )}
             </div>
             <div>
-              <p>Viernes:</p>
-
+              <p>Viernes:</p>{" "}
               {usuario.oPviernes === "4 empanadas (pollo/carne/jyq/humita)" ? (
                 <>
                   {usuario.oPviernes}; {usuario.saborEmpanadasV}
@@ -947,6 +947,9 @@ function Foods({ onChangeComidas, usuario, index, dispatch }) {
               }}
             >
               ELIMINAR
+            </button>
+            <button type="submit" className="my-button_agregar">
+              Enviar
             </button>
           </div>
         </div>

@@ -33,8 +33,9 @@ body {
 /* Main content with scroll adjustment */
 main {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
   min-height: 100vh;
   padding-top: 120px; /* Ajuste para compensar el espacio del header fijo */
 }
