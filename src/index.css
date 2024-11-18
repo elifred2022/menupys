@@ -91,7 +91,8 @@ header {
 
 .formulario input[type="text"],
 .formulario input[type="date"],
-.formulario input[type="email"] {
+.formulario input[type="email"],
+.formulario select  {
   flex: 1;
   padding: 8px;
   border: 1px solid #64b5f6;
@@ -217,7 +218,8 @@ header {
 
   .formulario input[type="text"],
   .formulario input[type="date"],
-  .formulario input[type="email"] {
+  .formulario input[type="email"],
+  .formulario select {
     width: 100%;
   }
 }
