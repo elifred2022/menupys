@@ -23,11 +23,13 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
   const [saborTartaMc, setSaborTartaMc] = useState("");
   const [saborTartaJ, setSaborTartaJ] = useState("");
   const [saborTartaV, setSaborTartaV] = useState("");
+  const [saborOmeletteMc, setSaborOmeletteMc] = useState("");
   //const [saborMilanesaL, setSaborMilanesaL] = useState("");
   //const [saborMilanesaM, setSaborMilanesaM] = useState("");
   //const [saborMilanesaMc, setSaborMilanesaMc] = useState("");
   //const [saborMilanesaJ, setSaborMilanesaJ] = useState("");
   const [saborMilanesaV, setSaborMilanesaV] = useState("");
+  const [observaciones, setObservaciones] = useState("");
 
   const form = useRef();
 
@@ -137,9 +139,16 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
   const handleSaborMilanesaChangeJ = (e) => {
     setSaborMilanesaJ(e.target.value);
   }; */
+  const handleSaborOmeletteChangeMc = (e) => {
+    setSaborOmeletteMc(e.target.value);
+  };
 
   const handleSaborMilanesaChangeV = (e) => {
     setSaborMilanesaV(e.target.value);
+  };
+
+  const handleObservacionesChange = (e) => {
+    setObservaciones(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -221,6 +230,8 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
     //setSaborMilanesaMc("");
     //setSaborMilanesaJ("");
     setSaborMilanesaV("");
+    setSaborOmeletteMc("");
+    setObservaciones("");
 
     // setGuardarDisabled(true);
     navigate("/lista"); // Redirige a la página "lista" después de guardar
@@ -239,6 +250,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             name="nombre"
           />
         </div>
+
         <div>
           <p>email:</p>
           <input
@@ -504,6 +516,11 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                   "Tarta(acelga/caprese/jyq) con ensalada (lechuga/tomate/zanahoria/cebolla)"
                 ) {
                   setSaborTartaMc("");
+                } else if (
+                  e.target.value ===
+                  "Omelette capresse con ensalada (lechuga/tomate/zanahoria/cebolla)"
+                ) {
+                  setSaborOmeletteMc("");
                 }
               }}
             >
@@ -519,8 +536,12 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               >
                 Costeletas de cerdo a la Riojana
               </option>
-              <option className="yellow" value="Omelette capresse">
-                Omelette capresse
+              <option
+                className="yellow"
+                value="Omelette capresse con ensalada (lechuga/tomate/zanahoria/cebolla)"
+              >
+                Omelette capresse con ensalada
+                (lechuga/tomate/zanahoria/cebolla)
               </option>
               <option
                 className="yellow"
@@ -591,6 +612,18 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                 value={saborTartaMc}
                 name="saborTartaMc"
                 onChange={handleSaborTartaChangeMc}
+              />
+            </div>
+          )) ||
+          (oPmiercoles ===
+            "Omelette capresse con ensalada (lechuga/tomate/zanahoria/cebolla)" && (
+            <div>
+              <input
+                placeholder="Ingrese gusto"
+                type="text"
+                value={saborOmeletteMc}
+                name="saborOmeletteMc"
+                onChange={handleSaborOmeletteChangeMc}
               />
             </div>
           ))}
@@ -715,7 +748,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                   setSaborEmpanadasV(""); // Reinicia el sabor si se selecciona
                 } else if (
                   e.target.value ===
-                  "Milanesa de vegetales (calabaza, zucchini o berenjena) con batatas al horno"
+                  "Milanesa de vegetales (zucchini o berenjena) con batatas al horno"
                 ) {
                   setSaborMilanesaV("");
                 } else if (
@@ -740,10 +773,10 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               </option>
               <option
                 className="yellow"
-                value="Milanesa de vegetales (calabaza, zucchini o berenjena) con batatas al horno"
+                value="Milanesa de vegetales (zucchini o berenjena) con batatas al horno"
               >
-                Milanesa de vegetales (calabaza, zucchini o berenjena) con
-                batatas al horno
+                Milanesa de vegetales (zucchini o berenjena) con batatas al
+                horno
               </option>
               <option
                 className="yellow"
@@ -818,7 +851,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             </div>
           )) ||
           (oPviernes ===
-            "Milanesa de vegetales (calabaza, zucchini o berenjena) con batatas al horno" && (
+            "Milanesa de vegetales (zucchini o berenjena) con batatas al horno" && (
             <div>
               <input
                 placeholder="Ingrese gusto"
@@ -829,7 +862,19 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               />
             </div>
           ))}
+
+        <div>
+          <p>Observaciones:</p>
+          <input
+            placeholder="Observaciones/aclaraciones"
+            type="text"
+            value={observaciones}
+            onChange={handleObservacionesChange}
+            name="observaciones"
+          />
+        </div>
       </div>
+
       <div>
         <button
           type="submit"
