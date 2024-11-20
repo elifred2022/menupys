@@ -748,7 +748,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                   setSaborEmpanadasV(""); // Reinicia el sabor si se selecciona
                 } else if (
                   e.target.value ===
-                  "Milanesa de vegetales (zucchini o berenjena) con batatas al horno"
+                  "Milanesa de vegetales (calabaza, zuccini o berenjena) con batatas al horno"
                 ) {
                   setSaborMilanesaV("");
                 } else if (
@@ -773,10 +773,10 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               </option>
               <option
                 className="yellow"
-                value="Milanesa de vegetales (zucchini o berenjena) con batatas al horno"
+                value="Milanesa de vegetales (calabaza, zuccini o berenjena) con batatas al horno"
               >
-                Milanesa de vegetales (zucchini o berenjena) con batatas al
-                horno
+                Milanesa de vegetales (calabaza, zuccini o berenjena) con
+                batatas al horno
               </option>
               <option
                 className="yellow"
@@ -851,7 +851,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
             </div>
           )) ||
           (oPviernes ===
-            "Milanesa de vegetales (zucchini o berenjena) con batatas al horno" && (
+            "Milanesa de vegetales (calabaza, zuccini o berenjena) con batatas al horno" && (
             <div>
               <input
                 placeholder="Ingrese gusto"
