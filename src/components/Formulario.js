@@ -339,6 +339,12 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               </option>
               <option
                 className="yellow"
+                value="Tortilla de papa con ensalada (lechuga/tomate/zanahoria/cebolla)"
+              >
+                Tortilla de papa con ensalada (lechuga/tomate/zanahoria/cebolla)
+              </option>
+              <option
+                className="yellow"
                 value="4 empanadas (pollo/carne/jyq/humita)"
               >
                 4 empanadas (pollo/carne/jyq/humita)
@@ -445,6 +451,12 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               >
                 Tarta(acelga/caprese/jyq) con ensalada
                 (lechuga/tomate/zanahoria/cebolla)
+              </option>
+              <option
+                className="yellow"
+                value="Tortilla de papa con ensalada (lechuga/tomate/zanahoria/cebolla)"
+              >
+                Tortilla de papa con ensalada (lechuga/tomate/zanahoria/cebolla)
               </option>
               <option
                 className="yellow"
@@ -561,6 +573,12 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               >
                 Tarta(acelga/caprese/jyq) con ensalada
                 (lechuga/tomate/zanahoria/cebolla)
+              </option>
+              <option
+                className="yellow"
+                value="Tortilla de papa con ensalada (lechuga/tomate/zanahoria/cebolla)"
+              >
+                Tortilla de papa con ensalada (lechuga/tomate/zanahoria/cebolla)
               </option>
               <option
                 className="yellow"
@@ -683,6 +701,12 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               </option>
               <option
                 className="yellow"
+                value="Tortilla de papa con ensalada (lechuga/tomate/zanahoria/cebolla)"
+              >
+                Tortilla de papa con ensalada (lechuga/tomate/zanahoria/cebolla)
+              </option>
+              <option
+                className="yellow"
                 value="4 empanadas (pollo/carne/jyq/humita)"
               >
                 4 empanadas (pollo/carne/jyq/humita)
@@ -796,6 +820,12 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
               >
                 Tarta(acelga/caprese/jyq) con ensalada
                 (lechuga/tomate/zanahoria/cebolla)
+              </option>
+              <option
+                className="yellow"
+                value="Tortilla de papa con ensalada (lechuga/tomate/zanahoria/cebolla)"
+              >
+                Tortilla de papa con ensalada (lechuga/tomate/zanahoria/cebolla)
               </option>
               <option
                 className="yellow"
