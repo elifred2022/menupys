@@ -849,7 +849,7 @@ const Formulario = ({ onAgregarConsumo, dispatch }) => {
                 Ensalada caesar
               </option>
               <option className="yellow" value="Ensalada Lelucha">
-                Ensalada lechuga
+                Ensalada Lelucha
               </option>
               <option className="yellow" value="Ensalada primavera">
                 Ensalada primavera
